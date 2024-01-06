@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Tests for Flipkart Regression" parallel="tests" thread-count="2">
+    <test name="LoginFlow">
+        <parameter name="browser" value="Safari"/>
+        <classes>
+            <class name="org.flipkart.tests.TestFlow"/>
+        </classes>
+    </test>
+    <test name="LoginFlow1">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="org.flipkart.tests.TestFlow"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+group = 'org.flipkart'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+application {
+    // Define the main class for the application.
+    mainClass = 'org.flipkart.Main'
+}
+
+
+dependencies {
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.6.3'
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.16.1'
+    implementation group: 'com.github.javafaker', name: 'javafaker', version: '1.0.2'
+    testImplementation group: 'org.testng', name: 'testng', version: '7.8.0'
+    implementation group: 'com.relevantcodes', name: 'extentreports', version: '2.41.2'
+    implementation group: 'org.apache.poi', name: 'poi', version: '5.2.3'
+    implementation group: 'com.aventstack', name: 'extentreports', version: '5.1.1'
+}
+
+test {
+    useTestNG() {
+        useDefaultListeners = true // generates the test report
+        suites 'src/test/java/org/flipkart/testng.xml'
+
+    }
+
+    afterSuite { desc, result ->
+        if (!desc.parent) {
+            println "\nTEST RESULT: ${result.resultType}"
+            println "TEST SUMMARY: RAN ${result.testCount} TESTS, " +
+                    "${result.successfulTestCount} SUCCEEDED, " +
+                    "${result.failedTestCount} FAILED, " +
+                    "${result.skippedTestCount} SKIPPED"
+        }
+    }
+
+    testLogging {
+        events "PASSED", "SKIPPED", "FAILED", "STANDARD_OUT", "STANDARD_ERROR"
+        exceptionFormat = 'full'
+
+        // Optionally do:
+        showStackTraces = true
+    }
+
+    testLogging.showStandardStreams = true
+    test.outputs.upToDateWhen {false}
+
+}
