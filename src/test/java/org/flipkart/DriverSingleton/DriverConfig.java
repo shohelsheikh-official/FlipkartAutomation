@@ -30,7 +30,6 @@ public class DriverConfig {
     }
 
     public static String capture(WebDriver driver, String filename) throws IOException {
-        // TODO: Add all the components here
 
         File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File Dest = new File(

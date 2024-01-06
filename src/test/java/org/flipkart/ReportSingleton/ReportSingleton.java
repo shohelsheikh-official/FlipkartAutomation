@@ -20,7 +20,6 @@ public class ReportSingleton {
         report = new ExtentReports(System.getProperty("user.dir")+"/FlipkartExtentReport"+timestampString+".html");
         report.loadConfig(new File(System.getProperty("user.dir")+"/src/extent_configs.xml"));
 
-        // TODO - 2. Start a new test
         return test = report.startTest("Flipkart");
 
     }
