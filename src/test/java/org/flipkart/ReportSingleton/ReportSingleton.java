@@ -21,7 +21,6 @@ public class ReportSingleton {
         report.loadConfig(new File(System.getProperty("user.dir")+"/src/extent_configs.xml"));
 
         return test = report.startTest("Flipkart");
-
     }
 
     @AfterSuite
