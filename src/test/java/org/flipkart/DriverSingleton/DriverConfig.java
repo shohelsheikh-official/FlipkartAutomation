@@ -22,7 +22,7 @@ public class DriverConfig {
 
     @BeforeMethod(alwaysRun = true)
     @Parameters("browser")
-    public void driverConfig(@Optional("Internet") String browser){
+    public void driverConfig(String browser){
         DriverSingleton.setDriver(browser);
         driver = DriverSingleton.getDriver();
         test = ReportSingleton.getReportInstance();

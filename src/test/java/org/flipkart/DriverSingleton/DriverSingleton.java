@@ -2,12 +2,10 @@ package org.flipkart.DriverSingleton;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.Parameters;
 
 public class DriverSingleton {
 
@@ -35,8 +33,8 @@ public class DriverSingleton {
 //    }
 
     public static void setDriver(String browser) {
-        WebDriver driver = createDriver(browser);
-        driverThreadLocal.set(driver);
+       // WebDriver driver = createDriver(browser);
+        driverThreadLocal.set(createDriver(browser));
     }
 
     private static WebDriver createDriver(String browser) {

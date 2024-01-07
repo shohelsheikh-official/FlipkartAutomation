@@ -20,4 +20,10 @@ public class HomePage extends PageContextUI implements HomePageElements {
     public void clickLoginButton(){
         ElementTypes.getWebElement("XPATH", HomePageElements.loginButton).click();
     }
+
+    public void searchProduct() throws InterruptedException {
+        navigatToHomePage();
+        ElementTypes.getWebElement("XPATH", HomePageElements.searchbox).sendKeys("iPhone 15 pro");
+        Thread.sleep(1000);
+    }
 }
