@@ -3,7 +3,7 @@ package org.flipkart.context;
 import com.relevantcodes.extentreports.ExtentTest;
 import org.flipkart.DriverSingleton.DriverSingleton;
 import org.flipkart.Pages.HomePage;
-import org.flipkart.ReportSingleton.ReportSingleton;
+//import org.flipkart.ReportSingleton.ReportSingleton;
 import org.openqa.selenium.WebDriver;
 
 public class PageContextUI {
@@ -13,9 +13,9 @@ public class PageContextUI {
 
     public PageContextUI(){}
 
-    public PageContextUI(WebDriver driver, ExtentTest test){
+    public PageContextUI(WebDriver driver){
         this.driver = driver;
-        this.test = test;
+        //this.test = test;
         homePage = new HomePage(driver);
     }
 
